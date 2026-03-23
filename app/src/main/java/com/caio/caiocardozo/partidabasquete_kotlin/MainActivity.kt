@@ -1,6 +1,6 @@
 package com.caio.caiocardozo.partidabasquete_kotlin
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -61,17 +61,17 @@ class MainActivity : AppCompatActivity() {
 
     fun atualizaPlacar(time: String){
         if(time == "A"){
-            pTimeA.setText(pontuacaoTimeA.toString())
+            pTimeA.text = pontuacaoTimeA.toString()
         }else {
-            pTimeB.setText(pontuacaoTimeB.toString())
+            pTimeB.text = pontuacaoTimeB.toString()
         }
     }
 
     fun reiniciarPartida() {
         pontuacaoTimeA = 0
-        pTimeA.setText(pontuacaoTimeA.toString())
+        pTimeA.text = pontuacaoTimeA.toString()
         pontuacaoTimeB = 0
-        pTimeB.setText(pontuacaoTimeB.toString())
+        pTimeB.text = pontuacaoTimeB.toString()
         Toast.makeText(this,"Placar reiniciado",Toast.LENGTH_SHORT).show()
 
     }
