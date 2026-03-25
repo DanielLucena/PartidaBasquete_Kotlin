@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.caio.caiocardozo.partidabasquete_kotlin.MainActivity">
 
     <LinearLayout
@@ -12,29 +10,29 @@
         android:background="@color/colorBackground"
         android:orientation="vertical">
 
-
+        <!-- TOPO -->
         <LinearLayout
             android:id="@+id/placarGeral"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <!-- TIME A -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/timeA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:text="HOME"
+                    android:text="@string/home"
                     android:textColor="#ffffff"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -43,50 +41,46 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bitcount"
                     android:gravity="center"
-                    android:padding="4dp"
                     android:text="0"
                     android:textColor="@color/ledYellow"
-                    android:textSize="80sp" />
-
-
+                    android:textSize="64sp" />
             </LinearLayout>
 
-
+            <!-- CLOCK -->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <Chronometer
                     android:id="@+id/clock"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="@font/bitcount"
                     android:textAlignment="center"
                     android:textColor="@color/ledRed"
-                    android:textSize="100dip" />
-
+                    android:textSize="70dp" />
             </LinearLayout>
 
+            <!-- TIME B -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/timeB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:text="GUEST"
+                    android:text="@string/guest"
                     android:textColor="#ffffff"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -95,105 +89,110 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bitcount"
                     android:gravity="center"
-                    android:padding="4dp"
                     android:text="0"
                     android:textColor="@color/ledYellow"
-                    android:textSize="80sp" />
-
-
+                    android:textSize="64sp" />
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- BOTÕES -->
         <LinearLayout
             android:id="@+id/buttonsGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <!-- TIME A -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tiroLivreA"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:text="+1" />
 
                 <Button
                     android:id="@+id/doisPontosA"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
-
                     android:text="+2" />
 
                 <Button
                     android:id="@+id/tresPontosA"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-
                     android:layout_weight="1"
-
                     android:text="+3" />
-
             </LinearLayout>
 
+            <!-- TIME B -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tiroLivreB"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:text="+1" />
 
                 <Button
                     android:id="@+id/doisPontosB"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:text="+2" />
 
                 <Button
                     android:id="@+id/tresPontosB"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:text="+3" />
-
             </LinearLayout>
         </LinearLayout>
 
+        <!-- ESPAÇO FLEXÍVEL -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
+        <!-- Pausar -->
+        <Button
+            android:id="@+id/pausarPartida"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:text="Pausar Partida" />
+
+        <!-- Continuar -->
+        <Button
+            android:id="@+id/continuarPartida"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:text="Continuar Partida" />
+
+
+        <!-- RESET -->
         <Button
             android:id="@+id/reiniciarPartida"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="32dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
             android:text="Reiniciar Partida" />
-
 
     </LinearLayout>
 </RelativeLayout>

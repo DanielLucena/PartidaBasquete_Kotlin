@@ -2,6 +2,7 @@ package com.caio.caiocardozo.partidabasquete_kotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.widget.Button
 import android.widget.Chronometer
 import android.widget.TextView
@@ -16,9 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pTimeB: TextView
 
     private lateinit var clock: Chronometer
-
-
-
+    private var tempoPausado: Long = 0
+    private var isPausado: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         val bTresPontosTimeB: Button = findViewById(R.id.tresPontosB)
         val bDoisPontosTimeB: Button = findViewById(R.id.doisPontosB)
         val bTLivreTimeB: Button = findViewById(R.id.tiroLivreB)
+        val bPausar: Button = findViewById(R.id.pausarPartida)
+        val bContinuar: Button = findViewById(R.id.continuarPartida)
         val bReiniciar: Button = findViewById(R.id.reiniciarPartida)
 
         clock = findViewById(R.id.clock)
@@ -52,28 +54,49 @@ class MainActivity : AppCompatActivity() {
 
         bTLivreTimeB.setOnClickListener { adicionarPontos(1, "B") }
 
+        bPausar.setOnClickListener( { pausarPartida() } )
+
+        bContinuar.setOnClickListener( { continuarPartida() })
+
         bReiniciar.setOnClickListener { reiniciarPartida() }
 
 
     }
 
     fun adicionarPontos(pontos: Int, time: String) {
-        if(time == "A"){
+        if (isPausado) {
+            Toast.makeText(this, "Não é possível adicionar pontos com o tempo pausado", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (time == "A") {
             pontuacaoTimeA += pontos
 
-        }else {
+        } else {
             pontuacaoTimeB += pontos
 
         }
         atualizaPlacar(time)
     }
 
-    fun atualizaPlacar(time: String){
-        if(time == "A"){
+    fun atualizaPlacar(time: String) {
+        if (time == "A") {
             pTimeA.text = pontuacaoTimeA.toString()
-        }else {
+        } else {
             pTimeB.text = pontuacaoTimeB.toString()
         }
+    }
+
+    fun pausarPartida() {
+        isPausado = true
+        tempoPausado = SystemClock.elapsedRealtime() - clock.base
+        clock.stop()
+    }
+
+    fun continuarPartida() {
+        isPausado = false
+        clock.base = SystemClock.elapsedRealtime() - tempoPausado
+        clock.start()
     }
 
     fun reiniciarPartida() {
@@ -81,10 +104,14 @@ class MainActivity : AppCompatActivity() {
         pTimeA.text = pontuacaoTimeA.toString()
         pontuacaoTimeB = 0
         pTimeB.text = pontuacaoTimeB.toString()
+
+        tempoPausado = 0
+        isPausado = false
         clock.stop()
-        clock.base = 0
+        clock.base = SystemClock.elapsedRealtime()
         clock.start()
-        Toast.makeText(this,"Placar reiniciado",Toast.LENGTH_SHORT).show()
+
+        Toast.makeText(this, "Placar reiniciado", Toast.LENGTH_SHORT).show()
 
     }
 }
