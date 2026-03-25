@@ -1,54 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.caio.caiocardozo.partidabasquete_kotlin.MainActivity">
 
-
     <LinearLayout
-        android:id="@+id/placarGeral"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/placarGeral"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/timeA"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#007a33"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="Boston Celtic"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/placarTimeA"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/timeA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="HOME"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/placarTimeA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bitcount"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="0"
+                    android:textColor="@color/ledYellow"
+                    android:textSize="80sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Chronometer
+                    android:id="@+id/clock"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bitcount"
+                    android:textAlignment="center"
+                    android:textColor="@color/ledRed"
+                    android:textSize="100dip" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bitcount"
-                android:gravity="center"
-                android:padding="4dp"
-                android:text="0"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="80sp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/timeB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="GUEST"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/placarTimeB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bitcount"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="0"
+                    android:textColor="@color/ledYellow"
+                    android:textSize="80sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
@@ -57,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:text="+1" />
 
                 <Button
@@ -65,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="8dp"
+                    android:layout_weight="1"
 
                     android:text="+2" />
 
@@ -74,60 +143,26 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
 
+                    android:layout_weight="1"
+
                     android:text="+3" />
 
             </LinearLayout>
-
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/timeB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#f9a01b"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="Los Angeles Lakers"
-                android:textColor="#552583"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/placarTimeB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bitcount"
-                android:gravity="center"
-                android:padding="4dp"
-                android:text="0"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="80sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:orientation="horizontal"
-                >
+                android:layout_weight="1"
+
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tiroLivreB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:text="+1" />
 
                 <Button
@@ -135,6 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:text="+2" />
 
                 <Button
@@ -142,20 +178,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:layout_weight="1"
                     android:text="+3" />
 
             </LinearLayout>
         </LinearLayout>
 
+
+        <Button
+            android:id="@+id/reiniciarPartida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="32dp"
+            android:text="Reiniciar Partida" />
+
+
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/reiniciarPartida"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="32dp"
-        android:text="Reiniciar Partida" />
 </RelativeLayout>

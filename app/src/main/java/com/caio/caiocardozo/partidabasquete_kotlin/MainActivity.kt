@@ -3,6 +3,7 @@ package com.caio.caiocardozo.partidabasquete_kotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Chronometer
 import android.widget.TextView
 import android.widget.Toast
 
@@ -13,6 +14,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var pTimeA: TextView
     private lateinit var pTimeB: TextView
+
+    private lateinit var clock: Chronometer
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         val bDoisPontosTimeB: Button = findViewById(R.id.doisPontosB)
         val bTLivreTimeB: Button = findViewById(R.id.tiroLivreB)
         val bReiniciar: Button = findViewById(R.id.reiniciarPartida)
+
+        clock = findViewById(R.id.clock)
+        clock.start()
+
 
 
         bTresPontosTimeA.setOnClickListener { adicionarPontos(3, "A") }
@@ -72,6 +81,9 @@ class MainActivity : AppCompatActivity() {
         pTimeA.text = pontuacaoTimeA.toString()
         pontuacaoTimeB = 0
         pTimeB.text = pontuacaoTimeB.toString()
+        clock.stop()
+        clock.base = 0
+        clock.start()
         Toast.makeText(this,"Placar reiniciado",Toast.LENGTH_SHORT).show()
 
     }
