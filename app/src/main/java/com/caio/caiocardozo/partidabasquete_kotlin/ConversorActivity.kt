@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 class ConversorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         setContentView(R.layout.layout_conversor)
 
         val editReal = findViewById<EditText>(R.id.editReal)
@@ -23,5 +25,10 @@ class ConversorActivity : AppCompatActivity() {
                 txtResultado.text = "U$ ${String.format("%.2f", resultado)}"
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

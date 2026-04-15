@@ -15,6 +15,8 @@ class CalculadoraActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         setContentView(R.layout.layout_calculadora)
 
         // TextView de display
@@ -59,6 +61,11 @@ class CalculadoraActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnBackspace).setOnClickListener { backspace() }
 
         updateDisplay()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     private fun appendDigit(d: String) {

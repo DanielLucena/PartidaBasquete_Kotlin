@@ -22,6 +22,9 @@ class BasqueteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         setContentView(R.layout.layout_basquete)
 
         pTimeA = findViewById(R.id.placarTimeA)
@@ -61,6 +64,11 @@ class BasqueteActivity : AppCompatActivity() {
         bReiniciar.setOnClickListener { reiniciarPartida() }
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     fun adicionarPontos(pontos: Int, time: String) {
