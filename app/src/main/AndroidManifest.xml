@@ -17,6 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BasqueteActivity" />
+        <activity android:name=".CalculadoraActivity" />
+        <activity android:name=".ConversorActivity" />
     </application>
 
 </manifest>
