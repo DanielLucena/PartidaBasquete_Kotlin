@@ -15,7 +15,7 @@ class CalculadoraActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.layout_calculadora)
 
         // TextView de display
         tvDisplay = findViewById(R.id.txtResultado)

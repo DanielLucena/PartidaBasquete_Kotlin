@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 class ConversorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_conversor)
+        setContentView(R.layout.layout_conversor)
 
         val editReal = findViewById<EditText>(R.id.editReal)
         val btnConverter = findViewById<Button>(R.id.btnConverter)
